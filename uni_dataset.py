@@ -1,4 +1,5 @@
 import urllib.request
+from Dataset import Dataset
 
 class Dataset(object):
     """ This implementation send the reasons and messages to the PagerDuty system. """
