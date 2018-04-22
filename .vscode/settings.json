@@ -1,0 +1,15 @@
+{
+    "python.linting.enabled": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/virtual_env": true,
+        "*.bat": true,
+        "*.lnk": true,
+        "__pycache__": true,
+        ".vscode": true
+    }
+}
