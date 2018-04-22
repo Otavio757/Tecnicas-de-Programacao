@@ -4,3 +4,5 @@ __pycache__/*
 twitter_settings.txt
 twitter.egg-info.old/*
 twitter/__pycache__/*
+vscode.bat
+virtual_env/*
