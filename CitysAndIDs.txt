@@ -1,0 +1,1016 @@
+Aceguá
+5786
+Água Santa
+5787
+Agudo
+5788
+Ajuricaba
+5789
+Alecrim
+5790
+Alegrete
+5791
+Alegria
+5792
+Almirante Tamandaré do Sul
+5793
+Alpestre
+5794
+Alto Alegre
+5795
+Alto Feliz
+5796
+Alvorada
+5797
+Amaral Ferrador
+5798
+Ametista do Sul
+5799
+André da Rocha
+5800
+Anta Gorda
+5801
+Antônio Prado
+5509
+Arambaré
+5510
+Araricá
+5511
+Aratiba
+5512
+Arroio do Meio
+5513
+Arroio do Padre
+5514
+Arroio do Sal
+5515
+Arroio dos Ratos
+5516
+Arroio do Tigre
+5517
+Arroio Grande
+5518
+Arvorezinha
+5519
+Augusto Pestana
+5520
+Áurea
+5521
+Bagé
+5522
+Balneário Pinhal
+5523
+Barão
+5526
+Barão de Cotegipe
+5524
+Barão do Triunfo
+5525
+Barracão
+5527
+Barra do Guarita
+5528
+Barra do Quaraí
+5529
+Barra do Ribeiro
+5530
+Barra do Rio Azul
+5531
+Barra Funda
+5532
+Barros Cassal
+5533
+Benjamin Constant do Sul
+5534
+Bento Gonçalves
+5535
+Boa Vista das Missões
+5536
+Boa Vista do Buricá
+5537
+Boa Vista do Cadeado
+5538
+Boa Vista do Incra
+5539
+Boa Vista do Sul
+5540
+Boca do Monte
+5541
+Bojuru
+5542
+Bom Jesus
+5543
+Bom Princípio
+5544
+Bom Progresso
+5545
+Bom Retiro do Sul
+5546
+Boqueirão do Leão
+5547
+Bororé
+5548
+Bossoroca
+5549
+Bozano
+5550
+Braga
+5551
+Brochier
+5552
+Butiá
+5553
+Caçapava do Sul
+5554
+Cacequi
+5555
+Cachoeira do Sul
+5556
+Cachoeirinha
+5557
+Cacique Doble
+5558
+Caibaté
+5559
+Caiçara
+5560
+Camaquã
+5561
+Camargo
+5562
+Cambará do Sul
+5563
+Campestre da Serra
+5564
+Campina das Missões
+5565
+Campinas do Sul
+5566
+Campo Bom
+5567
+Campo Novo
+5568
+Campos Borges
+5569
+Candelária
+5570
+Cândido Godói
+5571
+Candiota
+5572
+Canela
+5573
+Canguçu
+5574
+Canoas
+5575
+Canudos do Vale
+5576
+Capão Bonito do Sul
+5577
+Capão da Canoa
+5578
+Capão do Cipó
+5579
+Capão do Leão
+5580
+Capela de Santana
+5581
+Capitão
+5582
+Capivari do Sul
+5583
+Caraá
+5584
+Carazinho
+5585
+Carlos Barbosa
+5586
+Carlos Gomes
+5587
+Casca
+5588
+Caseiros
+5589
+Cassino
+5590
+Catuípe
+5591
+Caxias do Sul
+5592
+Centenário
+5593
+Cerrito
+5594
+Cerro Branco
+5595
+Cerro Grande
+5597
+Cerro Grande do Sul
+5596
+Cerro Largo
+5598
+Chapada
+5599
+Charqueadas
+5600
+Charrua
+5601
+Chiapetta
+5602
+Chuí
+5605
+Chuvisca
+5608
+Cidreira
+5622
+Ciríaco
+5628
+Colinas
+5629
+Colônia Nova
+5630
+Colorado
+5631
+Condor
+5632
+Constantina
+5633
+Coqueiro Baixo
+5634
+Coqueiros do Sul
+5635
+Coronel Barros
+5636
+Coronel Bicaco
+5637
+Coronel Pilar
+83454
+Cotiporã
+5638
+Coxilha
+5639
+Crissiumal
+5640
+Cristal
+5375
+Cristal do Sul
+5641
+Criúva
+5379
+Cruz Alta
+5380
+Cruzaltense
+5381
+Cruzeiro do Sul
+5382
+Curumim
+5383
+David Canabarro
+5384
+Derrubadas
+5385
+Dezesseis de Novembro
+5386
+Dilermando de Aguiar
+5388
+Dois Irmãos
+5394
+Dois Irmãos das Missões
+5391
+Dois Lajeados
+5397
+Dom Feliciano
+5398
+Dom Pedrito
+5399
+Dom Pedro de Alcântara
+5400
+Dona Francisca
+5401
+Doutor Maurício Cardoso
+5402
+Doutor Ricardo
+5403
+Eldorado do Sul
+5404
+Encantado
+5405
+Encruzilhada do Sul
+5406
+Engenho Velho
+5407
+Entre-Ijuís
+5408
+Entre Rios do Sul
+5409
+Erebango
+5410
+Erechim
+5411
+Ernestina
+5412
+Erval Grande
+5413
+Erval Seco
+5414
+Esmeralda
+5415
+Esperança do Sul
+5416
+Espumoso
+5417
+Estação
+5418
+Estância Velha
+5419
+Esteio
+5420
+Estrela
+5421
+Estrela Velha
+5422
+Eugênio de Castro
+5423
+Fagundes Varela
+5424
+Farroupilha
+5425
+Faxinal do Soturno
+5426
+Faxinalzinho
+5427
+Fazenda Vilanova
+5428
+Feliz
+5429
+Flores da Cunha
+5430
+Floriano Peixoto
+5431
+Fontoura Xavier
+5432
+Formigueiro
+5433
+Forquetinha
+5434
+Fortaleza dos Valos
+5435
+Frederico Westphalen
+5436
+Garibaldi
+5437
+Garruchos
+5438
+Gaurama
+5439
+General Câmara
+5440
+Gentil
+5441
+Getúlio Vargas
+5442
+Giruá
+5443
+Glorinha
+5444
+Gramado
+5446
+Gramado dos Loureiros
+5445
+Gramado Xavier
+5447
+Gravataí
+5448
+Guabiju
+5449
+Guaíba
+5450
+Guaporé
+5451
+Guarani das Missões
+5452
+Harmonia
+5453
+Herval
+5454
+Herveiras
+5455
+Horizontina
+5456
+Hulha Negra
+5457
+Humaitá
+5458
+Ibarama
+5459
+Ibiaçá
+5460
+Ibiraiaras
+5461
+Ibirapuitã
+5462
+Ibirubá
+5463
+Igrejinha
+5464
+Ijuí
+5465
+Ilópolis
+5466
+Imbé
+5467
+Imigrante
+5468
+Independência
+5469
+Inhacorá
+5470
+Ipê
+5471
+Ipiranga do Sul
+5472
+Iraí
+5473
+Itaara
+5474
+Itacurubi
+5475
+Itapuca
+5476
+Itaqui
+5477
+Itati
+5479
+Itatiba do Sul
+5478
+Ivorá
+5480
+Ivoti
+5481
+Jaboticaba
+5482
+Jacuizinho
+5483
+Jacutinga
+5484
+Jaguarão
+5485
+Jaguari
+5387
+Jaquirana
+5496
+Jari
+5497
+Jóia
+5498
+Júlio de Castilhos
+5499
+Lagoa Bonita do Sul
+83459
+Lagoa dos Três Cantos
+5500
+Lagoão
+5501
+Lagoa Vermelha
+5502
+Lajeado
+5507
+Lajeado do Bugre
+5503
+Lavras do Sul
+5508
+Liberato Salzano
+5240
+Lindolfo Collor
+5241
+Linha Nova
+5242
+Maçambara
+5243
+Machadinho
+5244
+Mampituba
+5245
+Manoel Viana
+5246
+Maquiné
+5247
+Maratá
+5248
+Marau
+5249
+Marcelino Ramos
+5250
+Mariana Pimentel
+5251
+Mariano Moro
+5252
+Marques de Souza
+5253
+Mata
+5254
+Mato Castelhano
+5255
+Mato Leitão
+5256
+Mato Queimado
+5257
+Maximiliano de Almeida
+5258
+Minas do Leão
+5259
+Miraguaí
+5260
+Montauri
+5261
+Monte Alegre dos Campos
+5262
+Monte Belo do Sul
+5263
+Montenegro
+5264
+Mormaço
+5265
+Morrinhos do Sul
+5266
+Morro Redondo
+5267
+Morro Reuter
+5268
+Morungava
+5269
+Mostardas
+5270
+Muçum
+5271
+Muitos Capões
+5272
+Muliterno
+5273
+Nicolau Vergueiro
+5275
+Nonoai
+5276
+Nova Alvorada
+5277
+Nova Araçá
+5278
+Nova Bassano
+5279
+Nova Boa Vista
+5280
+Nova Bréscia
+5281
+Nova Candelária
+5282
+Nova Esperança do Sul
+5283
+Nova Hartz
+5284
+Nova Pádua
+5285
+Nova Palma
+5286
+Nova Petrópolis
+5287
+Nova Prata
+5288
+Nova Ramada
+5289
+Nova Roma do Sul
+5290
+Nova Santa Rita
+5291
+Novo Barreiro
+5292
+Novo Cabrais
+5293
+Novo Hamburgo
+5295
+Novo Machado
+5296
+Novo Tiradentes
+5299
+Novo Xingu
+5300
+Osório
+5301
+Paim Filho
+5302
+Palmares do Sul
+5303
+Palmeira das Missões
+5304
+Palmitinho
+5305
+Panambi
+5306
+Pantano Grande
+5307
+Paraí
+5308
+Paraíso do Sul
+5313
+Pareci Novo
+5315
+Parobé
+5316
+Passa Sete
+5317
+Passo do Sobrado
+5318
+Passo Fundo
+5319
+Paulo Bento
+5320
+Paverama
+5321
+Pedras Altas
+5323
+Pedro Osório
+5324
+Pejuçara
+5325
+Pelotas
+5326
+Picada Café
+5327
+Pinhal
+5333
+Pinhal da Serra
+5328
+Pinhal Grande
+5331
+Pinheirinho do Vale
+5334
+Pinheiro Machado
+5335
+Pinto Bandeira
+83512
+Pirapó
+5336
+Piratini
+5337
+Planalto
+5338
+Poço das Antas
+5339
+Pontão
+5340
+Ponte Preta
+5341
+Portão
+5345
+Porto Alegre
+5346
+Porto Lucena
+5347
+Porto Mauá
+5348
+Porto Vera Cruz
+5349
+Porto Xavier
+5350
+Pouso Novo
+5351
+Presidente Lucena
+5352
+Progresso
+5353
+Protásio Alves
+5354
+Putinga
+5357
+Quaraí
+5358
+Quatro Irmãos
+4702
+Quevedos
+5359
+Quinze de Novembro
+5361
+Redentora
+5362
+Relvado
+5364
+Restinga Seca
+5366
+Rio dos Índios
+5367
+Rio Grande
+5368
+Rio Pardo
+5370
+Riozinho
+5373
+Roca Sales
+5374
+Rodeio Bonito
+5120
+Rolador
+5121
+Rolante
+5122
+Ronda Alta
+5123
+Rondinha
+5124
+Roque Gonzales
+5125
+Rosário do Sul
+5126
+Sagrada Família
+5127
+Saldanha Marinho
+5128
+Salto do Jacuí
+5129
+Salvador das Missões
+5130
+Salvador do Sul
+5131
+Sananduva
+5132
+Santa Bárbara do Sul
+5133
+Santa Cecília do Sul
+5134
+Santa Clara do Sul
+5135
+Santa Cruz do Sul
+5136
+Santa Margarida do Sul
+5137
+Santa Maria
+5139
+Santa Maria do Herval
+5138
+Santana da Boa Vista
+5140
+Santana do Livramento
+5141
+Santa Rosa
+5142
+Santa Tereza
+5143
+Santa Vitória do Palmar
+5144
+Santiago
+5145
+Santo Ângelo
+5153
+Santo Antônio da Patrulha
+5146
+Santo Antônio das Missões
+5147
+Santo Antônio do Palma
+5148
+Santo Antônio do Planalto
+5149
+Santo Augusto
+5150
+Santo Cristo
+5151
+Santo Expedito do Sul
+5152
+São Borja
+5154
+São Domingos do Sul
+5155
+São Francisco de Assis
+5156
+São Francisco de Paula
+5157
+São Gabriel
+5158
+São Jerônimo
+5159
+São João da Urtiga
+5160
+São João do Polêsine
+5161
+São Jorge
+5162
+São José das Missões
+5163
+São José do Erval
+5164
+São José do Herval
+83468
+São José do Hortêncio
+5165
+São José do Inhacorá
+5166
+São José do Norte
+5167
+São José do Ouro
+5168
+São José dos Ausentes
+5169
+São José do Sul
+83469
+São Leopoldo
+5170
+São Lourenço do Sul
+5171
+São Luiz Gonzaga
+5172
+São Marcos
+5173
+São Martinho
+5175
+São Martinho da Serra
+5174
+São Miguel das Missões
+5176
+São Nicolau
+5177
+São Paulo das Missões
+5178
+São Pedro da Serra
+5179
+São Pedro das Missões
+5180
+São Pedro do Butiá
+5181
+São Pedro do Sul
+5182
+São Sebastião do Caí
+5183
+São Sepé
+5184
+São Valentim
+5188
+São Valentim do Sul
+5187
+São Valerio do Sul
+5189
+São Vendelino
+5191
+São Vicente do Sul
+5192
+Sapiranga
+5193
+Sapucaia do Sul
+5195
+Sarandi
+5196
+SBCX
+85794
+SBPA
+74827
+Seberi
+5197
+Sede Nova
+5198
+Segredo
+5201
+Selbach
+5202
+Senador Salgado Filho
+5204
+Sentinela do Sul
+5205
+Serafina Correa
+5206
+Sério
+5207
+Sertão
+5208
+Sertão Santana
+5209
+Sete de Setembro
+5210
+Severiano de Almeida
+5211
+Silveira Martins
+5212
+Sinimbu
+5213
+Sobradinho
+5214
+Soledade
+5217
+Tabaí
+5222
+Tapejara
+5223
+Tapera
+5224
+Tapes
+5225
+Taquara
+5226
+Taquari
+5227
+Taquaruçu do Sul
+5228
+Tavares
+5229
+Tenente Portela
+5230
+Terra de Areia
+5231
+Teutônia
+5232
+Tio Hugo
+5233
+Tiradentes do Sul
+5234
+Toropi
+5235
+Torres
+5236
+Tramandaí
+5237
+Travesseiro
+5238
+Trentin
+5239
+Três Arroios
+5008
+Três Cachoeiras
+5009
+Três Coroas
+5010
+Três de Maio
+5011
+Três Forquilhas
+5012
+Três Palmeiras
+5013
+Três Passos
+5014
+Trindade do Sul
+5015
+Triunfo
+5016
+Tucunduva
+5017
+Tunas
+5018
+Tupanci do Sul
+5019
+Tupanciretã
+5020
+Tupandi
+5021
+Tuparendi
+5022
+Turuçu
+5023
+Ubiretama
+5024
+União da Serra
+5025
+Unistalda
+5026
+Uruguaiana
+5027
+Vacaria
+5028
+Vale do Sol
+3683
+Vale Real
+3681
+Vale Verde
+5029
+Vanini
+5030
+Venâncio Aires
+5031
+Vera Cruz
+5032
+Veranópolis
+5033
+Vespasiano Correa
+5034
+Viadutos
+5035
+Viamão
+5036
+Vicente Dutra
+5037
+Victor Graeff
+5038
+Vila Flores
+5039
+Vila Lângaro
+5040
+Vila Maria
+5041
+Vila Nova do Sul
+5042
+Vista Alegre
+5044
+Vista Alegre do Prata
+5043
+Vista Gaúcha
+5045
+Vitória das Missões
+5046
+Westfália
+5047
+Xangri-lá
+5048
