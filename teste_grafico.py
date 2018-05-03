@@ -1,6 +1,7 @@
 ##Usando Pylab para gerar os gráficos
 # -*- coding:utf-8 -*-
-
+import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 # função usada como exemplo
@@ -30,9 +31,7 @@ preto = "black"
 ## ACIMA
 # cores do grafico
 
-
-def plota_barra_1():
-    plt.bar(xBar, yBar, color=azul)
+plt.bar(xBar, yBar, color=azul)
 
 
 # pylab.plot(e, s) - 'plota' os dados de entrada e saída
@@ -55,3 +54,4 @@ def plota_barra_1():
 
 # pylab.show() - exibe o gráfico
 #pylab.show()
+plt.show()
