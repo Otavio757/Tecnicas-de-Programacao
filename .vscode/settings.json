@@ -1,5 +1,5 @@
 {
-    "python.linting.enabled": false,
+    "python.linting.enabled": true,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -12,5 +12,5 @@
         "__pycache__": true,
         ".vscode": true
     },
-    "python.pythonPath": "${workspaceFolder}\\virtual_env\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Program Files\\Python36\\python.exe"
 }

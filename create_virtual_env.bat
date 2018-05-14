@@ -1,2 +1,2 @@
 virtualenv virtual_env
-pip install -r requirements.txt
+call activate_virtual_env.bat

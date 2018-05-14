@@ -1,7 +1,6 @@
 import os
 from datetime import datetime
 
-
 class ConcepaDatasetBuilder:
     def __init__(self):
         self.f = None
@@ -13,7 +12,7 @@ class ConcepaDatasetBuilder:
         return self
 
     def Save(self, text):
-        self.f.write(text + '\r\n')
+        self.f.write(text)
 
     def Close(self):
         self.f.close()
