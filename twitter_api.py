@@ -69,21 +69,23 @@ def  send_direct_message(to, message):
     t = get_twitter_instance()
     t.direct_messages.new(user=to, text=message)
 
-def tweet_with_image():
+def tweet_with_image(image_path):
     t = get_twitter_instance()
     # Send images along with your tweets:
     # - first just read images from the web or from files the regular way:
-    with open("example.png", "rb") as imagefile:
+    with open(image_path, "rb") as imagefile:
         imagedata = imagefile.read()
     # - then upload medias one by one on Twitter's dedicated server and collect each one's id:
     t_upload = get_twitter_upload_instance()
     id_img1 = t_upload.media.upload(media=imagedata)["media_id_string"]
-    id_img2 = t_upload.media.upload(media=imagedata)["media_id_string"]
+    #id_img2 = t_upload.media.upload(media=imagedata)["media_id_string"]
     # - finally send your tweet with the list of media ids:
-    t.statuses.update(status="PTT ★", media_ids=",".join([id_img1, id_img2]))
+    #t.statuses.update(status="PTT ★", media_ids=",".join([id_img1, id_img2]))
+    t.statuses.update(status="PTT ★", media_ids=id_img1)
 
 if __name__ == "__main__":
     #tc = single_query_twitter("#devopspower")
     #print(tc)
     #send_direct_message("trlthiago", "mensagem de teste")
-    make_tweet()
+    #make_tweet()
+    tweet_with_image("D:\\20180221_225728.jpg")
