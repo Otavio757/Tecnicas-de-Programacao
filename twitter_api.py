@@ -28,6 +28,18 @@ class Tweet:
     def __str__(self): 
         return f"{self.source} - {self.geo} - {self.text}."
 
+class TweetRepliedIndex:
+    def __init__(self):
+        with open("WeatherPerHour.csv", "w") as f:
+            self.ids = f.readlines()
+
+    def Add(self, id):
+        self.ids.append(id)
+        with open("replied_tweets.txt", "w") as f:
+            f.write(id)
+    def is_member(self, id):
+        return id in self.ids
+
 def load_twitter_tokens():
     with open('twitter_settings.txt', 'r') as content_file:
         content = content_file.read()
@@ -82,6 +94,10 @@ def tweet_with_image(image_path):
     # - finally send your tweet with the list of media ids:
     #t.statuses.update(status="PTT ★", media_ids=",".join([id_img1, id_img2]))
     t.statuses.update(status="PTT ★", media_ids=id_img1)
+
+def is_tweet_replied(tweet_id):
+    #save replied ID to a file, and use it to test.
+    return TweetRepliedIndex().is_member(tweet_id)
 
 if __name__ == "__main__":
     #tc = single_query_twitter("#devopspower")
