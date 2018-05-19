@@ -59,7 +59,11 @@ def single_query_twitter(hashtag):
 
 def make_tweet():
     t = get_twitter_instance()
-    t.statuses.update(status="Using @sixohsix's sweet Python Twitter Tools..", in_reply_to_status_id="901156381490917376", auto_populate_reply_metadata=True)
+    t.statuses.update(status="Using @sixohsix's sweet Python Twitter Tools..")
+
+def reply_tweet(tweet_id):
+    t = get_twitter_instance()
+    t.statuses.update(status="Using @sixohsix's sweet Python Twitter Tools..", in_reply_to_status_id=tweet_id, auto_populate_reply_metadata=True)
 
 def  send_direct_message(to, message): 
     t = get_twitter_instance()
