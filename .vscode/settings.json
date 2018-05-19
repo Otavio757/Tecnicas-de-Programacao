@@ -12,5 +12,5 @@
         "__pycache__": true,
         ".vscode": true
     },
-    "python.pythonPath": "C:\\Program Files\\Python36\\python.exe"
+    "python.pythonPath": "${workspaceFolder}\\virtual_env\\Scripts\\python.exe"
 }

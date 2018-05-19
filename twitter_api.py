@@ -9,12 +9,15 @@ class TweetCollection:
     def append(self, tweet):
         self.tweets.append(tweet)
 
-    def __str__(self): 
+    def __str__(self):
+        return self.GetInfo()
+
+    def GetInfo(self):
+        length = len(self.tweets)
+        x = str(length) + " tweets retuned."
         for tweet in self.tweets:
-            return tweet.__str__()
-    
-    def PrintInfo():
-        print(str(len(a['statuses'])) + " tweets retuned.")
+            x += tweet
+        return x
 
 class Tweet:
     def __init__(self, source, geo, text):
@@ -34,22 +37,49 @@ def load_twitter_tokens():
 def start_twitter_monitoring():
     pass
 
-def single_query_twitter(hashtag):
+def get_twitter_instance():
     settings = load_twitter_tokens()
-    t = Twitter(auth=OAuth(settings[0], settings[1], settings[2], settings[3]))
+    return Twitter(auth=OAuth(settings[0], settings[1], settings[2], settings[3]))
 
+def get_twitter_upload_instance():
+    settings = load_twitter_tokens()
+    return Twitter(domain="upload.twitter.com", auth=OAuth(settings[0], settings[1], settings[2], settings[3]))
+
+def single_query_twitter(hashtag):
+    t = get_twitter_instance()
     #a = t.statuses.home_timeline() # Get your "home" timeline
     a = t.search.tweets(q=hashtag, count=5)
 
-    tc = TweetCollection()
+    tweets = TweetCollection()
 
     for tweet in a['statuses']:
         t = Tweet(tweet['source'], tweet['user']['location'], tweet['text'])
-        tc.append(t)
         tweets.append(t)
-    return tc #quem for printar pode usar item.__str__()
+    return tweets #quem for printar pode usar item.__str__()
 
+def make_tweet():
+    t = get_twitter_instance()
+    t.statuses.update(status="Using @sixohsix's sweet Python Twitter Tools..", in_reply_to_status_id="901156381490917376", auto_populate_reply_metadata=True)
+
+def  send_direct_message(to, message): 
+    t = get_twitter_instance()
+    t.direct_messages.new(user=to, text=message)
+
+def tweet_with_image():
+    t = get_twitter_instance()
+    # Send images along with your tweets:
+    # - first just read images from the web or from files the regular way:
+    with open("example.png", "rb") as imagefile:
+        imagedata = imagefile.read()
+    # - then upload medias one by one on Twitter's dedicated server and collect each one's id:
+    t_upload = get_twitter_upload_instance()
+    id_img1 = t_upload.media.upload(media=imagedata)["media_id_string"]
+    id_img2 = t_upload.media.upload(media=imagedata)["media_id_string"]
+    # - finally send your tweet with the list of media ids:
+    t.statuses.update(status="PTT ★", media_ids=",".join([id_img1, id_img2]))
 
 if __name__ == "__main__":
-    tc = single_query_twitter("#devopspower")
-    print(tc)
+    #tc = single_query_twitter("#devopspower")
+    #print(tc)
+    #send_direct_message("trlthiago", "mensagem de teste")
+    make_tweet()

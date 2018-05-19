@@ -1,6 +1,6 @@
 git.lnk
 __pycache__/*
-twitter_settings.txt
+twitter_settings*.txt
 twitter.egg-info.old/*
 twitter/__pycache__/*
 virtual_env/*
