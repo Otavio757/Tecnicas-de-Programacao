@@ -25,6 +25,10 @@ def start():
         
         except ValueError:
             todayNumber = date.today().weekday() + 1
+            
+            if (todayNumber > 6):
+                todayNumber = 0
+                
             split = day.split(":")
             lastDay = int(split[1])
             forecast = w.getForecastIntervalOfDays(1, lastDay)
