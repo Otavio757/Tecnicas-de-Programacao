@@ -25,7 +25,7 @@ def start():
             day = int(day)
             forecast = w.getForecastOneDay(day)
             allProperties = w.getAllPropertiesForecastOneDay(forecast)
-            tweet = "#Tweet2Time " + w.getPropertyForecastByIndexOneDay(8, forecast)
+            tweet = w.getPropertyForecastByIndexOneDay(8, forecast)
             reply_tweet(tweetsIDs[i], tweet)
             print(allProperties)
         
@@ -40,7 +40,7 @@ def start():
             forecast = w.getForecastIntervalOfDays(1, lastDay)
             
             allProperties = "----- " + weekDays[todayNumber].upper() + " -----\n\n" + w.getAllPropertiesForecastOneDay(forecast[0])
-            tweet = "#Tweet2Time\n" + weekDays[todayNumber] + ": " + w.getPropertyForecastByIndexOneDay(8, forecast[0])
+            tweet = weekDays[todayNumber] + ": " + w.getPropertyForecastByIndexOneDay(8, forecast[0])
             cont = todayNumber + 1
             
             for j in range(1, len(forecast)):
