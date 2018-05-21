@@ -1,6 +1,6 @@
 from clima_tempo import Weather, citiesDictionary, loadCitiesIDs
 from datetime import date
-from twitter_api import single_query_twitter, reply_tweet, tweetsIDs
+from UnisinosTwitter.TwitterService import get_tweets, reply_tweet
 
 #Dicionário com as palavras-chave que serão verificadas no tweet do usuário
 keyWords = {}
@@ -12,8 +12,8 @@ def start():
     generateKeyWordsAndNumbers()
     tweets = getTweets()
     
-    for i in range(0, len(tweets.tweets)):
-        tweet = tweets.tweets[i]
+    for tweet in tweets: #range(0, len(tweets.tweets)):
+        #tweet = tweets.tweets[i]
         text = getTweetText(tweet)
         
         city = checkCity(text)
@@ -25,8 +25,8 @@ def start():
             day = int(day)
             forecast = w.getForecastOneDay(day)
             allProperties = w.getAllPropertiesForecastOneDay(forecast)
-            tweet = "#Tweet2Time " + w.getPropertyForecastByIndexOneDay(8, forecast)
-            reply_tweet(tweetsIDs[i], tweet)
+            message = "#Tweet2Time " + w.getPropertyForecastByIndexOneDay(8, forecast)
+            reply_tweet(tweet.id, message)
             print(allProperties)
         
         except ValueError:
@@ -40,7 +40,7 @@ def start():
             forecast = w.getForecastIntervalOfDays(1, lastDay)
             
             allProperties = "----- " + weekDays[todayNumber].upper() + " -----\n\n" + w.getAllPropertiesForecastOneDay(forecast[0])
-            tweet = "#Tweet2Time\n" + weekDays[todayNumber] + ": " + w.getPropertyForecastByIndexOneDay(8, forecast[0])
+            message = "#Tweet2Time\n" + weekDays[todayNumber] + ": " + w.getPropertyForecastByIndexOneDay(8, forecast[0])
             cont = todayNumber + 1
             
             for j in range(1, len(forecast)):
@@ -48,10 +48,10 @@ def start():
                     cont = 0
                     
                 allProperties += "\n\n----- " + weekDays[cont].upper() + " -----\n\n" + w.getAllPropertiesForecastOneDay(forecast[j])
-                tweet += "\n" + weekDays[cont] + ": " + w.getPropertyForecastByIndexOneDay(8, forecast[j])
+                message += "\n" + weekDays[cont] + ": " + w.getPropertyForecastByIndexOneDay(8, forecast[j])
                 cont += 1
             
-            reply_tweet(tweetsIDs[i], tweet)
+            reply_tweet(tweet.id, tweet)
             print(allProperties)
         
 def generateKeyWordsAndNumbers():
@@ -83,10 +83,10 @@ def generateKeyWordsAndNumbers():
     numbers["sete"] = "7"
 
 def getTweets():
-    tweets = single_query_twitter("#Tweet2Time")
+    tweets = get_tweets("#Tweet2Time")
     
     if (len(tweets.tweets) == 0):
-        tweets = single_query_twitter("#TweetToTime")
+        tweets = get_tweets("#TweetToTime")
 
     return tweets
 
