@@ -1,16 +1,19 @@
-from twitter_api import single_query_twitter
-from clima_tempo import Weather
+from clima_tempo import Weather, citiesDictionary, loadCitiesIDs
 from datetime import date
+from twitter_api import single_query_twitter, reply_tweet, tweetsIDs
 
 #Dicionário com as palavras-chave que serão verificadas no tweet do usuário
 keyWords = {}
-weekDays = ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
+numbers = {}
+weekDays = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
 
 def start():
-    generateKeyWords()
+    loadCitiesIDs()
+    generateKeyWordsAndNumbers()
     tweets = getTweets()
     
-    for tweet in tweets:
+    for i in range(0, len(tweets.tweets)):
+        tweet = tweets.tweets[i]
         text = getTweetText(tweet)
         
         city = checkCity(text)
@@ -21,7 +24,10 @@ def start():
         try:
             day = int(day)
             forecast = w.getForecastOneDay(day)
-            return w.getAllPropertiesForecastOneDay(forecast)
+            allProperties = w.getAllPropertiesForecastOneDay(forecast)
+            tweet = "#Tweet2Time " + w.getPropertyForecastByIndexOneDay(8, forecast)
+            reply_tweet(tweetsIDs[i], tweet)
+            print(allProperties)
         
         except ValueError:
             todayNumber = date.today().weekday() + 1
@@ -33,19 +39,22 @@ def start():
             lastDay = int(split[1])
             forecast = w.getForecastIntervalOfDays(1, lastDay)
             
-            result = "----- " + weekDays[todayNumber].upper() + " -----\n\n" + w.getAllPropertiesForecastOneDay(forecast[0])
+            allProperties = "----- " + weekDays[todayNumber].upper() + " -----\n\n" + w.getAllPropertiesForecastOneDay(forecast[0])
+            tweet = "#Tweet2Time\n" + weekDays[todayNumber] + ": " + w.getPropertyForecastByIndexOneDay(8, forecast[0])
             cont = todayNumber + 1
             
-            for i in range(1, len(forecast)):
+            for j in range(1, len(forecast)):
                 if(cont > 6):
                     cont = 0
                     
-                result += "\n\n----- " + weekDays[cont].upper() + " -----\n\n" + w.getAllPropertiesForecastOneDay(forecast[i])
+                allProperties += "\n\n----- " + weekDays[cont].upper() + " -----\n\n" + w.getAllPropertiesForecastOneDay(forecast[j])
+                tweet += "\n" + weekDays[cont] + ": " + w.getPropertyForecastByIndexOneDay(8, forecast[j])
                 cont += 1
             
-            return result
+            reply_tweet(tweetsIDs[i], tweet)
+            print(allProperties)
         
-def generateKeyWords():
+def generateKeyWordsAndNumbers():
     todayNumber = date.today().weekday()
     
     keyWords["hoje"] = 0
@@ -53,7 +62,7 @@ def generateKeyWords():
     cont = 0
     
     for i in range(todayNumber, 7):
-        today = weekDays[i]
+        today = weekDays[i].lower()
         keyWords[today] = cont
         cont += 1
     
@@ -65,12 +74,19 @@ def generateKeyWords():
             keyWords[today] = cont
             cont += 1
             todayNumber += 1
+    
+    numbers["dois"] = "2"
+    numbers["três"] = "3"
+    numbers["quatro"] = "4"
+    numbers["cinco"] = "5"
+    numbers["seis"] = "6"
+    numbers["sete"] = "7"
 
 def getTweets():
-    tweets = single_query_twitter("#Tweet2Time").tweets
+    tweets = single_query_twitter("#Tweet2Time")
     
-    if (len(tweets) == 0):
-        tweets = single_query_twitter("#TweetToTime").tweets
+    if (len(tweets.tweets) == 0):
+        tweets = single_query_twitter("#TweetToTime")
 
     return tweets
 
@@ -94,40 +110,36 @@ def checkDay(text):
         return 1
     
     else:
-        try:
-            for weekDay in weekDays:
-                if (weekDay in text):
-                    return keyWords[weekDay]
+        for weekDay in weekDays:
+            weekDay = weekDay.lower()
+            if (weekDay in text):
+                return keyWords[weekDay]
         
         #Se chegou até aqui é porque o usuário não digitou um dia de semana válido
-        except:
-            return -1
+        return -1
                     
 def checkDaysInterval(text):
     textWithoutSpace = text.replace(" ", "")
     numDays = textWithoutSpace.split("próximos")[1]
     numDays = numDays.split("dias")[0]
     
+    #Teste para ver se o número foi escrito por extenso
+    try:
+        int(numDays)
+    
+    except:
+        numDays = numbers[numDays]
+    
     return "1:" + numDays
 
-#Observação: para a cidade ser reconhecida corretamente, ela deverá estar no final da frase e com letra maiúscula em cada nome da cidade (por exemplo São Leopoldo) 
-#com um ponto de interrogação no final. Além disso o usuário precisará escrever obrigatoriamente "cidade" ou "cidade de"
+#Com a atualização deste método, não é mais necessário explicitar a palavra cidade e nem seguir as outras regras
 def checkCity(text):
-    verification = "cidade"
+    for key in citiesDictionary:
+        if (key in text):
+            return key
     
-    if (verification in text):
-        if("cidade de" in text):
-            verification = "cidade de"
-        
-        city = text.split(verification)[1]
-        city = city.split("?")[0]
-        city = city[1:]
-        
-        return city
-    
-    #Se chegou até aqui a cidade não foi especificada
-    else:
-        return ""
-    
+    #Se chegou até aqui a cidade não foi especificada ou é inválida
+    return ""
 
-print(start())    
+
+start()

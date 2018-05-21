@@ -2,6 +2,8 @@ from twitter import *
 from pprint import pprint
 from inspect import getmembers
 
+tweetsIDs = []
+
 class TweetCollection:
     def __init__(self):
         self.tweets = []
@@ -65,6 +67,11 @@ def single_query_twitter(hashtag):
     tweets = TweetCollection()
 
     for tweet in a['statuses']:
+        idTweet = str(tweet).split("'id':")[1]
+        idTweet = idTweet.split(",")[0]
+        idTweet = int(idTweet)
+        tweetsIDs.append(idTweet)
+        
         t = Tweet(tweet['source'], tweet['user']['location'], tweet['text'])
         tweets.append(t)
     return tweets #quem for printar pode usar item.__str__()
@@ -73,9 +80,9 @@ def make_tweet():
     t = get_twitter_instance()
     t.statuses.update(status="Using @sixohsix's sweet Python Twitter Tools..")
 
-def reply_tweet(tweet_id):
+def reply_tweet(tweet_id, reply):
     t = get_twitter_instance()
-    t.statuses.update(status="Using @sixohsix's sweet Python Twitter Tools..", in_reply_to_status_id=tweet_id, auto_populate_reply_metadata=True)
+    t.statuses.update(status=reply, in_reply_to_status_id=tweet_id, auto_populate_reply_metadata=True)
 
 def  send_direct_message(to, message): 
     t = get_twitter_instance()
@@ -99,9 +106,9 @@ def is_tweet_replied(tweet_id):
     #save replied ID to a file, and use it to test.
     return TweetRepliedIndex().is_member(tweet_id)
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     #tc = single_query_twitter("#devopspower")
     #print(tc)
     #send_direct_message("trlthiago", "mensagem de teste")
     #make_tweet()
-    tweet_with_image("D:\\20180221_225728.jpg")
+  #  tweet_with_image("D:\\20180221_225728.jpg")

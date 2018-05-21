@@ -1,3 +1,17 @@
+Porto Alegre
+5346
+São Leopoldo
+5170
+Novo Hamburgo
+5295
+Canoas
+5575
+Montenegro
+5264
+Gravataí
+5448
+Pelotas
+5326
 Aceguá
 5786
 Água Santa
@@ -162,8 +176,6 @@ Canela
 5573
 Canguçu
 5574
-Canoas
-5575
 Canudos do Vale
 5576
 Capão Bonito do Sul
@@ -380,8 +392,6 @@ Gramado dos Loureiros
 5445
 Gramado Xavier
 5447
-Gravataí
-5448
 Guabiju
 5449
 Guaíba
@@ -528,8 +538,6 @@ Monte Alegre dos Campos
 5262
 Monte Belo do Sul
 5263
-Montenegro
-5264
 Mormaço
 5265
 Morrinhos do Sul
@@ -586,8 +594,6 @@ Novo Barreiro
 5292
 Novo Cabrais
 5293
-Novo Hamburgo
-5295
 Novo Machado
 5296
 Novo Tiradentes
@@ -632,8 +638,6 @@ Pedro Osório
 5324
 Pejuçara
 5325
-Pelotas
-5326
 Picada Café
 5327
 Pinhal
@@ -662,8 +666,6 @@ Ponte Preta
 5341
 Portão
 5345
-Porto Alegre
-5346
 Porto Lucena
 5347
 Porto Mauá
@@ -810,8 +812,6 @@ São José dos Ausentes
 5169
 São José do Sul
 83469
-São Leopoldo
-5170
 São Lourenço do Sul
 5171
 São Luiz Gonzaga

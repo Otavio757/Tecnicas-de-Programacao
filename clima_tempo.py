@@ -2,29 +2,46 @@ import requests
 import csv
 from _operator import pos
 
-def getCityID(name):
-    file = open("CitysAndIDs.txt", "r")
-    line = file.readline()
-    
+citiesDictionary = {}
 
-    while (line != ""):
-        line = line[:-1] #Remove o \n da String
+def loadCitiesIDs():
+    file = open("CitysAndIDs.txt", "r")
+    key = file.readline()
+    
+    while (key != ""):
+        key = key[:-1] #Remove o \n da String
         
-        if (line == name):
-            line = file.readline()
-            line = line[:-1] #Remove o \n da String
-            idCity = int(line)
-            return idCity
-    
-        else:
-            file.readline()
-            line = file.readline()
-    
-                #Se chegou até aqui, a cidade não existe
-    return -1     
+        value = file.readline()
+        value = value[:-1]
+        
+        citiesDictionary[key] = value
+        
+        key = file.readline()
+        
+        
+#def getCityID(name):
+#   file = open("CitysAndIDs.txt", "r")
+#   line = file.readline()
+ #   
+#
+#    while (line != ""):
+ #       line = line[:-1] #Remove o \n da String
+  #      
+  #      if (line == name):
+   #         line = file.readline()
+    #        line = line[:-1] #Remove o \n da String
+     #       idCity = int(line)
+      #      return idCity
+    #
+     #   else:
+      #      file.readline()
+       #     line = file.readline()
+    #
+     #           #Se chegou até aqui, a cidade não existe
+    #return -1     
     
 class Weather:
-    city = -1
+    city = ""
     
     #Índices: 0 = Temperatura; 1 = Direção do vento; 2 = Velocidade do vento; 3 = Umidade; 4 = Condição; 5 = Pressão; 6 = Ícone; 7 = Sensação térmica; 8 = Data e hora
     weather = ""
@@ -44,8 +61,8 @@ class Weather:
     forecastPropertiesList = []
     
     def __init__(self, cityName):
-        self.city = getCityID(cityName)
-        self.getCurrentWeather()
+        self.city = citiesDictionary[cityName]
+        #self.getCurrentWeather()
         self.getWeatherForecast()
         self.getWeatherPerHour()
         
@@ -95,8 +112,8 @@ class Weather:
                                        "PREVISÃO GERAL\n", "PREVISÃO POR PERÍODO\n", "TEMPERATURA (ºC)\n"]
     
     def getCurrentWeather(self):
-        idCity = str(self.city)
-        url = "http://apiadvisor.climatempo.com.br/api/v1/weather/locale/" + idCity + "/current?token=674c09fdf63da66d938c5eb2d0860e72"
+        idCity = self.city
+        url = "http://apiadvisor.climatempo.com.br/api/v1/weather/locale/" + idCity + "/current?token=d4fb1038cd0a705e7e82f2b2aeb0f2f5"
         request = requests.get(url)
         content = request.content
         content = content.decode("utf-8")
@@ -105,8 +122,8 @@ class Weather:
     
     #Previsão de 7 dias, sendo que cada dia é uma posição do array
     def getWeatherForecast(self):
-        idCity = str(self.city)
-        url = "http://apiadvisor.climatempo.com.br/api/v1/forecast/locale/" + idCity + "/days/15?token=674c09fdf63da66d938c5eb2d0860e72"
+        idCity = self.city
+        url = "http://apiadvisor.climatempo.com.br/api/v1/forecast/locale/" + idCity + "/days/15?token=d4fb1038cd0a705e7e82f2b2aeb0f2f5"
         request = requests.get(url)
         content = request.content
         content = content.decode("utf-8")
@@ -114,8 +131,8 @@ class Weather:
         self.forecast = dataForecast[1].split(',{')
     
     def getWeatherPerHour(self):
-        idCity = str(self.city)
-        url = "http://apiadvisor.climatempo.com.br/api/v1/forecast/locale/" + idCity + "/hours/72?token=674c09fdf63da66d938c5eb2d0860e72"
+        idCity = self.city
+        url = "http://apiadvisor.climatempo.com.br/api/v1/forecast/locale/" + idCity + "/hours/72?token=d4fb1038cd0a705e7e82f2b2aeb0f2f5"
         request = requests.get(url)
         content = request.content
         content = content.decode("utf-8")
@@ -216,7 +233,7 @@ class Weather:
                 propertyForecast = self.organizeTemperatureProperty(propertyForecast)
         
         propertyForecast = self.translateProperty(propertyForecast, index)    
-        propertyForecast = self.forecastPropertiesList[index] + propertyForecast
+        #propertyForecast = self.forecastPropertiesList[index] + propertyForecast
         
         return propertyForecast
         
@@ -234,20 +251,20 @@ class Weather:
         return self.getPropertyForecastByIndex(index)
     
     def getAllPropertiesWeather(self):
-        properties = self.getPropertyWeatherByIndex(0)
+        properties = self.weatherPropertiesList[0] + self.getPropertyWeatherByIndex(0)
         
         for i in range(1, 8):
             if (i != 6):
-                properties += "\n" + self.getPropertyWeatherByIndex(i)
+                properties += "\n" + self.weatherPropertiesList[i] + self.getPropertyWeatherByIndex(i)
         
         return properties
     
     def getAllPropertiesForecastOneDay(self, forecast):
-        properties = self.getPropertyForecastByIndexOneDay(2, forecast)
+        properties = self.forecastPropertiesList[2] + self.getPropertyForecastByIndexOneDay(2, forecast)
         
         for i in range(3, 11):
             if (i != 7):
-                properties += "\n\n" + self.getPropertyForecastByIndexOneDay(i, forecast)
+                properties += "\n\n" + self.forecastPropertiesList[i] + self.getPropertyForecastByIndexOneDay(i, forecast)
             
         
         return properties
@@ -259,7 +276,7 @@ class Weather:
     def getForecastIntervalOfDays(self, firstDay, lastDay):
         resultForecast = []
         
-        for i in range(firstDay, lastDay):
+        for i in range(firstDay, lastDay+1):
             resultForecast.append(self.forecast[i])
         
         return resultForecast
@@ -348,7 +365,8 @@ class Weather:
             
         return p       
 
-w = Weather("Montenegro")
-w.getCsvWeatherPerHour()
-print(w.weatherPerHour)
+#loadCitiesIDs()
+#w = Weather("Montenegro")
+#w.getCsvWeatherPerHour()
+#print(w.weatherPerHour)
         
