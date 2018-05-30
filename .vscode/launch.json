@@ -5,11 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Terminal (integrated)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "pythonPath": "${config:python.pythonPath}",
+            "env": {
+                "GOOGLE_APPLICATION_CREDENTIALS": "D:\\PROJECTS\\GoogleCredentials-InteligenciaArtificial.json",
+            }
+        }
+        ,
+        {
             "name": "Python",
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "virtual_env\\Scripts\\python.exe",
+            // "pythonPath": "virtual_env\\Scripts\\python.exe",
+            "pythonPath": "${workspaceFolder}\\virtual_env\\Scripts\\python.exe",
+            // "python.pythonPath": "${workspaceFolder}\\virtual_env\\Scripts\\python.exe"
             "program": "${file}",
             "cwd": "${workspaceFolder}",
             "env": {},
