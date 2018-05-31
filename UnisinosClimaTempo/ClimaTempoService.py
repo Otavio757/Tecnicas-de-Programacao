@@ -1,4 +1,3 @@
-#from . import ClimaTempoResponse, ClimaTempoHistoryInfo, ClimaTempoCurrentInfo, ClimaTempoForecastDaysInfo, ClimaTempoForecastHoursInfo
 import unidecode
 from UnisinosClimaTempo.WebClient import WebClient
 from UnisinosClimaTempo.ClimaTempoResponse import ClimaTempoResponse, ClimaTempoHistoryInfo, ClimaTempoCurrentInfo, ClimaTempoForecastDaysInfo, ClimaTempoForecastHoursInfo
