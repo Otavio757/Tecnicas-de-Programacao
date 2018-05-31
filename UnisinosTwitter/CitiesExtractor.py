@@ -4,9 +4,10 @@ __status__ = "Development"
 
 #https://pt.wikipedia.org/wiki/Lista_de_munic%C3%ADpios_do_Brasil_por_popula%C3%A7%C3%A3o
 
-from geotext import GeoText
-from CityIndex import CityIndex
+import sys
 import math
+from geotext import GeoText
+from UnisinosTwitter.CityIndex import CityIndex
 
 class CitiesExtractor:
     """ usaremos esta classe para extrair as cidades de dentro do texto to tweet"""
@@ -79,8 +80,9 @@ class CitiesExtractor:
             f.writelines(map(lambda x: x + '\n', cities))
 
     def TryPredictCity(self, city):
-        from nltk.containers import Trie
-        t = Trie()
+        # from nltk.containers import Trie
+        # t = Trie()
+        pass
 
     def SimpleExtractor(self, text):
         """neste caso, testamos o indice de cidades contra o texto 
@@ -117,6 +119,7 @@ class CitiesExtractor:
         return found_cities
 
 if __name__ == "__main__":
+    # print(sys.path)
     extractor = CitiesExtractor()
     ##extractor.BuildCitiesDataset()
     #a = extractor.GetCities("Estou indo para sao leopoldo")

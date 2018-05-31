@@ -8,7 +8,7 @@ from UnisinosTwitter.TweetObject import TweetObject
 class TwitterService:
 
     def load_twitter_tokens(self):
-        with open('twitter_settings.txt', 'r') as content_file:
+        with open('Settings/twitter_settings.txt', 'r') as content_file:
             content = content_file.read()
             settings = content.split(",")
             return settings

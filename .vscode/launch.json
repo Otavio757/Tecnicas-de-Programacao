@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Terminal (integrated)",
+            "name": "Python: GLOBAL",
             "type": "python",
             "request": "launch",
             "program": "${file}",
@@ -17,7 +17,7 @@
         }
         ,
         {
-            "name": "Python",
+            "name": "Python VIRT",
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
