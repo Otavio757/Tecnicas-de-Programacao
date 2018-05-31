@@ -1,37 +1,46 @@
+import unidecode
 from datetime import datetime
 from num2words import num2words
 
+class DaysInfo:
+    def __init__(self, is_exactly, days_ahead):
+        self.is_exactly = is_exactly
+        self.days_ahead = days_ahead
+
 class DaysExtractor:
-    daysOfWeek = ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
+    
+    #unicoded words
+    daysOfWeek = ["segunda", "terca", "quarta", "quinta", "sexta", "sabado", "domingo"]
 
     def get_days_ahead(self, day_index):
         current = datetime.today().weekday()
         if current > day_index:
             return 7 - current + day_index
         else:
-            day_index - current
+            return day_index - current
 
     def get_raw_day(self, text):
-                
-        if ("próximos" in text or "proximos" in text):
+        unidecoded_text = unidecode.unidecode(text).lower()
+
+        if ("proximos" in unidecoded_text):
             #return self.get_interval_of_days(text)
-            days = self.get_interval_of_days_by_regex(text)
+            days = self.get_interval_of_days_by_regex(unidecoded_text)
             if days.isdigit():
-                return int(days)
-            return self.parse_word_to_number(days)
+                return DaysInfo(False, int(days))
+            return DaysInfo(False, self.parse_word_to_number(days))
         
-        elif("hoje" in text):
-            return 0
+        elif("hoje" in unidecoded_text):
+            return DaysInfo(True, 0)
         
-        elif("amanhã" in text or "amanha" in text):
-            return 1
+        elif("amanha" in unidecoded_text):
+            return DaysInfo(True, 1)
         
         else:
             for weekDay in self.daysOfWeek:
-                if (weekDay in text):
-                    return self.get_days_ahead(self.daysOfWeek.index(weekDay))
+                if (weekDay in unidecoded_text):
+                    return DaysInfo(True, self.get_days_ahead(self.daysOfWeek.index(weekDay)))
 
-            return 0 #hoje - user didnt informed, so we assumed today as a default
+            return DaysInfo(True, 0) #hoje - user didnt informed, so we assumed today as a default
 
     def get_interval_of_days(self, text):
         textWithoutSpace = text.replace(" ", "")

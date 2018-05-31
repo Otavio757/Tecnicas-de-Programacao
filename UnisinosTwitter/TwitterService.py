@@ -85,3 +85,28 @@ if __name__ == "__main__":
         if not repliedTweetIndex.is_already_replied(tweet.id):
             repliedTweetIndex.set_as_replied(tweet.id)
             #reply_tweet()
+
+class TwitterServiceFake:
+
+    def __init__(self):
+        self.tweets = [
+            "qual a previsao do tempo para gravatai nos proximos 2 dias?",
+            "qual a previsao do tempo para gravatai nos proximos 10 dias?",
+            "qual a previsao do tempo para gravatai nos proximos dez dias?",
+            "qual a previsao do tempo para gravataí nos proximos dez dias?",
+            "qual a previsao do tempo para Gravataí nos proximos dez dias?",
+            "qual a previsao do tempo pra são LEOPOLDO pra hoje?",
+            "qual a previsao do tempo para canoas pra sexta feira?",
+            "qual a previsao do tempo para canoas pra quarta?"
+            "qual a previsao do tempo para canoas pra terca feira?"
+            "qual a previsao do tempo para glorinha amanhã?",
+            "Como tá o tempo em Santo Antônio da Patrulha para amanhã #Tweet2Time"
+        ]
+
+    def get_tweets(self, hashtag):
+        import random
+        import uuid
+        tweets = TweetCollection()
+        index = random.randint(0, len(self.tweets)-1)
+        tweets.append(TweetObject(uuid.uuid1().__str__(), index, "", self.tweets[index]))
+        return tweets #quem for printar pode usar item.__str__()

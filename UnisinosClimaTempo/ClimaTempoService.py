@@ -1,5 +1,5 @@
 import unidecode
-from UnisinosClimaTempo.WebClient import WebClient
+from UnisinosClimaTempo.WebClient import WebClient, WebClientFake
 from UnisinosClimaTempo.ClimaTempoResponse import ClimaTempoResponse, ClimaTempoHistoryInfo, ClimaTempoCurrentInfo, ClimaTempoForecastDaysInfo, ClimaTempoForecastHoursInfo
 
 class ClimaTempoService:
@@ -9,7 +9,7 @@ class ClimaTempoService:
 
     def __init__(self, isDebug=False):
         self.cities = {}
-        self.web_client = WebClient(isDebug)
+        self.web_client = isDebug and WebClientFake() or WebClient()
         self.load_cities_ids()
 
     def load_cities_ids(self):
@@ -32,7 +32,8 @@ class ClimaTempoService:
         return url
 
     def get_current_weather(self, cityName):
-        response = self.web_client.Invoke(self.build_url("weather", cityName, unit="current"))
+        url = self.build_url("weather", cityName, unit="current")
+        response = self.web_client.Invoke(url)
         return ClimaTempoResponse(response, ClimaTempoCurrentInfo)
 
     def get_weather_per_hour(self, cityName):

@@ -1,23 +1,33 @@
+import os
 import requests
 
 class WebClient:
-    def __init__(self, isDebug=False):
-        self.is_debug = isDebug
-
+    def __init__(self):
+        pass
+        
     def Invoke(self, url):
-        if self.is_debug:
-            #file = open("UnisinosClimaTempo/hours_example.txt", "r")
-            file = open("UnisinosClimaTempo/response_example.txt", "r")
+            return requests.get(url).content.decode("utf-8")
+
+class WebClientFake():
+    def Invoke(self, url):
+        file_path = self.get_filename(url)
+        if os.path.exists(file_path):
+            file = open(file_path, "r")
             response = file.readline()
             file.close()
             return response
         else:
-            return requests.get(url).content.decode("utf-8")
-
-    def generate_example(self, url, destination_filename):
-        response = requests.get(url).content.decode("utf-8")
-        file = open("UnisinosClimaTempo/"+destination_filename+".txt", "a")
-        file.write(response)
-        file.flush()
-        file.close()
-        return response
+            real_web_client = WebClient()
+            response = real_web_client.Invoke(url)
+            file = open(file_path, "w")
+            file.write(response)
+            file.flush()
+            file.close()
+            return response
+    
+    def get_filename(self, url):
+        if "current" in url: return "UnisinosClimaTempo/SavedResponses/current.txt"
+        if "days/15" in url: return "UnisinosClimaTempo/SavedResponses/days.txt"
+        if "hours/72" in url: return "UnisinosClimaTempo/SavedResponses/hours.txt"
+        if "history" in url: return "UnisinosClimaTempo/SavedResponses/history.txt"
+        return "UnisinosClimaTempo/SavedResponses/unknown.txt"
