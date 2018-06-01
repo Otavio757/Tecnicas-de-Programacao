@@ -31,7 +31,11 @@ class ClimaTempoCurrentInfo:
 
 class ClimaTempoForecastDaysInfo:
     def __init__(self, dic):
+        self.date = None
+        self.temperature = None
         self.__dict__ = dic
+        self.min_temperature = self.temperature['min']
+        self.max_temperature = self.temperature['max']
     
     def Format(self):
         return "(na data: %s temp min de %s e max de %s) " % (self.date, self.temperature['min'], self.temperature['max'])

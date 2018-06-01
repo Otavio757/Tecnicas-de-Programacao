@@ -47,12 +47,20 @@ class TwitterService:
     def reply_tweet(self, tweet_id, reply):
         t = self.get_twitter_instance()
         t.statuses.update(status=reply, in_reply_to_status_id=tweet_id, auto_populate_reply_metadata=True)
+    
+    def reply_tweet_with_image(self, tweet_id, reply, image_path):
+        t = self.get_twitter_instance()
+        with open(image_path, "rb") as imagefile:
+            imagedata = imagefile.read()
+        t_upload = self.get_twitter_upload_instance()
+        id_img1 = t_upload.media.upload(media=imagedata)["media_id_string"]
+        t.statuses.update(status=reply, media_ids=id_img1, in_reply_to_status_id=tweet_id, auto_populate_reply_metadata=True)
 
     def send_direct_message(self, to, message): 
         t = self.get_twitter_instance()
         t.direct_messages.new(user=to, text=message)
 
-    def tweet_with_image(self, image_path):
+    def tweet_with_image(self, message, image_path):
         t = self.get_twitter_instance()
         # Send images along with your tweets:
         # - first just read images from the web or from files the regular way:
@@ -64,7 +72,7 @@ class TwitterService:
         #id_img2 = t_upload.media.upload(media=imagedata)["media_id_string"]
         # - finally send your tweet with the list of media ids:
         #t.statuses.update(status="PTT ★", media_ids=",".join([id_img1, id_img2]))
-        t.statuses.update(status="PTT ★", media_ids=id_img1)
+        t.statuses.update(status=message, media_ids=id_img1)
 
     def analize(self, tweet):
         self.send_direct_message("trlthiago", "mensagem de teste")

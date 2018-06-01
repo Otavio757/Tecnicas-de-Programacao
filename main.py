@@ -8,6 +8,8 @@ from UnisinosTwitter.TweetRepliedIndex import TweetRepliedIndex
 from UnisinosTwitter.CitiesExtractor import CitiesExtractor 
 from UnisinosClimaTempo.DaysExtractor import DaysExtractor
 from UnisinosClimaTempo.ClimaTempoService import ClimaTempoService
+from UnisinosClimaTempo.Chart import plot_weather
+
 
 if __name__ == "__main__":
 
@@ -46,8 +48,11 @@ if __name__ == "__main__":
                         if days.is_exactly:
                                 print(weathers.info[days.days_ahead].Format())
                         else:
+                            plot_info = list(map(lambda x: [x.date, x.min_temperature], weathers.info))
+                            chart_path = plot_weather(plot_info)
                             for weather in weathers.info[0:days.days_ahead]:
                                 print(weather.Format())
+                            #twitter.reply_tweet_with_image(tweet.id, message, chart_path)
                 except:
                     print(sys.exc_info()[0])
                     
