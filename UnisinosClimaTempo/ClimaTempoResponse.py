@@ -15,6 +15,12 @@ class ClimaTempoResponse:
             return self.data[attr]
         except KeyError:
             return 'UNIBOT NOT FOUND ATTRIBUTE'
+    
+    def __str__(self):
+        result = ""
+        for i in self.info:
+            result += str(i) + '\n'
+        return result
 
 class ClimaTempoCurrentInfo:
     def __init__(self, dic):
@@ -28,6 +34,9 @@ class ClimaTempoCurrentInfo:
             return self.data[attr]
         except KeyError:
             return 'UNIBOT NOT FOUND ATTRIBUTE'
+    
+    def __str__(self):
+        return "(Agora a temperatura é de %s) " % (self.temperature)
 
 class ClimaTempoForecastDaysInfo:
     def __init__(self, dic):
@@ -37,13 +46,19 @@ class ClimaTempoForecastDaysInfo:
         self.min_temperature = self.temperature['min']
         self.max_temperature = self.temperature['max']
     
-    def Format(self):
-        return "(na data: %s temp min de %s e max de %s) " % (self.date, self.temperature['min'], self.temperature['max'])
+    def __repr__(self):
+        return "(na data: %s temp min de %s e max de %s) " % (self.date, self.min_temperature, self.max_temperature)
 
 class ClimaTempoForecastHoursInfo:
     def __init__(self, dic):
         self.__dict__ = dic
 
+    def __str__(self):
+        raise NotImplementedError()
+
 class ClimaTempoHistoryInfo:
     def __init__(self, dic):
         self.__dict__ = dic
+    
+    def __str__(self):
+        raise NotImplementedError()

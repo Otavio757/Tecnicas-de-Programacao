@@ -74,10 +74,10 @@ class TwitterService:
         #t.statuses.update(status="PTT ★", media_ids=",".join([id_img1, id_img2]))
         t.statuses.update(status=message, media_ids=id_img1)
 
-    def analize(self, tweet):
-        self.send_direct_message("trlthiago", "mensagem de teste")
-        self.make_tweet("Replying ")
-        self.tweet_with_image("D:\\20180221_225728.jpg")
+    # def analize(self, tweet):
+    #     self.send_direct_message("trlthiago", "mensagem de teste")
+    #     self.make_tweet("Replying ")
+    #     self.tweet_with_image("D:\\20180221_225728.jpg")
 
 if __name__ == "__main__":
 
@@ -118,3 +118,10 @@ class TwitterServiceFake:
         index = random.randint(0, len(self.tweets)-1)
         tweets.append(TweetObject(uuid.uuid1().__str__(), index, "", self.tweets[index]))
         return tweets #quem for printar pode usar item.__str__()
+
+    def reply_tweet(self, tweet_id, reply):
+        print(reply)
+    
+    def reply_tweet_with_image(self, tweet_id, reply, image_path):
+        print(reply)
+        print(image_path)

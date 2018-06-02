@@ -7,9 +7,9 @@ class ClimaTempoService:
     token = "d4fb1038cd0a705e7e82f2b2aeb0f2f5"
     uri_base = "http://apiadvisor.climatempo.com.br/api/v1/[METHOD]/locale/"
 
-    def __init__(self, isDebug=False):
+    def __init__(self):
         self.cities = {}
-        self.web_client = isDebug and WebClientFake() or WebClient()
+        self.web_client = WebClient()
         self.load_cities_ids()
 
     def load_cities_ids(self):
@@ -40,16 +40,27 @@ class ClimaTempoService:
         response = self.web_client.Invoke(self.build_url("forecast", cityName, unit="hours/72"))
         return ClimaTempoResponse(response, ClimaTempoForecastHoursInfo)
 
-    def get_weather_per_days(self, cityName):
+    def get_weather_per_days(self, cityName, exact_day = -1, days_ahead = -1):
         response = self.web_client.Invoke(self.build_url("forecast", cityName, unit="days/15")) #always 15 days - fucking shitting api
-        return ClimaTempoResponse(response, ClimaTempoForecastDaysInfo)
+        response = ClimaTempoResponse(response, ClimaTempoForecastDaysInfo)
+        if not exact_day == -1:
+            response.info = [response.info[exact_day]]
+        elif not days_ahead == -1:
+            response.info = response.info[0:days_ahead]
+        return response
         
     def get_weather_history(self, cityName):
         response = self.web_client.Invoke(self.build_url("history", cityName, fromDate=""))
         return ClimaTempoResponse(response, ClimaTempoHistoryInfo)
-      
+
+class ClimaTempoServiceFake(ClimaTempoService):
+    def __init__(self):
+        self.cities = {}
+        self.web_client = WebClientFake()
+        self.load_cities_ids()
+
 if __name__ == "__main__":
-    service = ClimaTempoService(True)
+    service = ClimaTempoServiceFake()
     weathers = service.get_current_weather("Gravataí")
     for weather in weathers.info:
         print(weather.date)
