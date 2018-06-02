@@ -1,7 +1,7 @@
 import os.path
 
 class TweetRepliedIndex:
-    filepath = "replied_tweets.txt"
+    filepath = "UnisinosTwitter/replied_tweets.txt"
 
     def __init__(self):
         self.ids = []
