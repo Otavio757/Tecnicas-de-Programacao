@@ -11,15 +11,7 @@ from UnisinosTwitter.CityIndex import CityIndex
 
 class CitiesExtractor:
     """ usaremos esta classe para extrair as cidades de dentro do texto to tweet"""
-    def Extract(self, text):
-        pass
 
-    def GetPosition(self, tweet):
-        return tweet["coordinates"]
-    
-    def GetWords(self, text):
-        return text.split(" ")
-    
     def GetCandidates(self, words):
         import itertools
         reponses=[]
@@ -33,7 +25,6 @@ class CitiesExtractor:
         return reponses
 
     def GetCities(self, text):
-        #tokens = self.GetWords(text)
         tokens = self.TokenizeByWords(text)
         combinations = self.GetCandidates(tokens)
         #candidates = GeoText(combinations).cities
@@ -102,6 +93,9 @@ class CitiesExtractor:
         return found_cities
 
     def SimpleExtratorEnsured(self, text):
+        """
+        Tem o principio de Match-Whole-Word
+        """
         text = text.lower()
         index = CityIndex()
         found_cities = []

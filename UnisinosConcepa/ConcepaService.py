@@ -4,7 +4,7 @@ from datetime import timedelta
 from ConcepaByDateParser import ConcepaByDateParser
 from ConcepaSummary import ConcepaSummary
 
-class Concepa:
+class ConcepaService:
 
     def GetByDate(self, pathId, date):
         normalized_date = ConcepaByDateParser.NormalizeDate(date)

@@ -11,7 +11,6 @@
         "*.lnk": true,
         "__pycache__": true,
         ".vscode": true
-    },
-    "python.pythonPath": "${workspaceFolder}\\virtual_env\\Scripts\\python.exe"
+    }
     // "python.pythonPath": "${workspaceFolder}\\virtual_env\\Scripts\\python.exe"
 }
