@@ -1,0 +1,1 @@
+{"id":5448,"name":"Gravata\u00ed","state":"RS","country":"BR  ","data":{"temperature":17,"wind_direction":"ND","wind_velocity":2,"humidity":94,"condition":"Alguma nebulosidade","pressure":1016,"icon":"2n","sensation":17,"date":"2018-05-30 19:27:44"}}

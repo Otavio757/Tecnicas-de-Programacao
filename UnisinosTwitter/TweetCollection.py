@@ -15,9 +15,9 @@ class TweetCollection:
 
     def GetInfo(self):
         length = len(self.tweets)
-        x = str(length) + " tweets retuned."
+        x = str(length) + " tweets retuned. "
         for tweet in self.tweets:
-            x += tweet
+            x += str(tweet)
         return x
 
     def append(self, tweet):
