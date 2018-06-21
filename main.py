@@ -2,6 +2,7 @@ import sys, time
 from datetime import datetime
 from UnisinosClimaTempo.Chart import plot_weather
 from DependenceResolver import DependenceResolver
+from UnisinosTwitter.DaysValidator import DaysValidator
 
 class UnisinosBot:
     def __init__(self, resolver):
@@ -28,25 +29,37 @@ class UnisinosBot:
                     cities = self.city.SimpleExtratorEnsured(tweet.text)
                     days = self.days.get_raw_day(tweet.text)
                     
-                    self.Show(tweet, cities, days)
-
-                    if days.days_ahead == 0:
-                        weather = self.weather.get_current_weather(cities[0])
-                        message = "A temperatura para %s hoje é %s" % (cities[0], weather.info[0].temperature)
-                        self.twitter.reply_tweet(tweet.id, message)
-                    else:
-                        if days.is_exactly:
-                            weathers = self.weather.get_weather_per_days(cities[0], exact_day=days.days_ahead)
-                            print(weathers)
-                            message = "A temperatura para %s será %s" % (cities[0], weathers.info[0].temperature)
+                    if(DaysValidator(days).isValid):               
+                        self.Show(tweet, cities, days)
+    
+                        if days.days_ahead == 0:
+                            weather = self.weather.get_current_weather(cities[0])
+                            message = "A temperatura para %s hoje é %s" % (cities[0], weather.info[0].temperature)
                             self.twitter.reply_tweet(tweet.id, message)
                         else:
-                            weathers = self.weather.get_weather_per_days(cities[0], days_ahead=days.days_ahead)
-                            print(weathers)
-                            plot_info = list(map(lambda x: [x.date, x.min_temperature], weathers.info))
-                            chart_path = plot_weather(plot_info)
-                            message = "A temperatura para %s será %s" % (cities[0], weathers)
-                            self.twitter.reply_tweet_with_image(tweet.id, message, chart_path)
+                            if days.is_exactly:
+                                weathers = self.weather.get_weather_per_days(cities[0], exact_day=days.days_ahead)
+                                print(weathers)
+                                message = "A temperatura para %s será %s" % (cities[0], weathers.info[0].temperature)
+                                self.twitter.reply_tweet(tweet.id, message)
+                            else:
+                                weathers = self.weather.get_weather_per_days(cities[0], days_ahead=days.days_ahead)
+                                print(weathers)
+                                plot_info = list(map(lambda x: [x.date, x.min_temperature], weathers.info))
+                                chart_path = plot_weather(plot_info)
+                                message = "A temperatura para %s será %s" % (cities[0], weathers)
+                                self.twitter.reply_tweet_with_image(tweet.id, message, chart_path)
+                    
+                    else:
+                        weekDays = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+                        today = datetime.today().weekday()
+                        maximumDay = today + 5
+                        
+                        if (maximumDay > 6):
+                            maximumDay -= 7
+                            
+                        message = "Infelizmente não foi possível obter a previsão do tempo. Ela só está disponível até " + weekDays[maximumDay] + " (5 dias a partir de hoje)"
+                        self.twitter.reply_tweet(tweet.id, message)
                 except Exception as e:
                     print(e)
                     print(sys.exc_info()[0])
