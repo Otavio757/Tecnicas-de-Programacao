@@ -10,6 +10,7 @@ class UnisinosBot:
         self.city = resolver.Resolve("city_extractor")
         self.days = resolver.Resolve("days_extractor")
         self.repliedTweetIndex = resolver.Resolve("tweeter_index")
+        self.properties = resolver.Resolve("properties")
 
     def Show(self, tweet, cities, days):
         print("=" * 60)
@@ -46,6 +47,9 @@ class UnisinosBot:
                             plot_info = list(map(lambda x: [x.date, x.min_temperature], weathers.info))
                             chart_path = plot_weather(plot_info)
                             message = "A temperatura para %s será %s" % (cities[0], weathers)
+                            props = self.properties.get_requested_property(tweet.text)
+                            if not props == "":
+                                message += "Test "
                             self.twitter.reply_tweet_with_image(tweet.id, message, chart_path)
                 except Exception as e:
                     print(e)

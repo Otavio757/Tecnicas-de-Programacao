@@ -8,7 +8,8 @@ class DependenceResolver:
                 "weather": "UnisinosClimaTempo.ClimaTempoService.ClimaTempoServiceFake",
                 "city_extractor": "UnisinosTwitter.CitiesExtractor.CitiesExtractor",
                 "days_extractor": "UnisinosClimaTempo.DaysExtractor.DaysExtractor",
-                "tweeter_index": "UnisinosTwitter.TweetRepliedIndex.TweetRepliedIndex"
+                "tweeter_index": "UnisinosTwitter.TweetRepliedIndex.TweetRepliedIndex",
+                "properties": "UnisinosClimaTempo.PropertiesExtractor"
             }
         else:
             self.instances = {    
@@ -16,7 +17,8 @@ class DependenceResolver:
             "weather": "UnisinosClimaTempo.ClimaTempoService.ClimaTempoService",
             "city_extractor": "UnisinosTwitter.CitiesExtractor.CitiesExtractor",
             "days_extractor": "UnisinosClimaTempo.DaysExtractor.DaysExtractor",
-            "tweeter_index": "UnisinosTwitter.TweetRepliedIndex.TweetRepliedIndex"
+            "tweeter_index": "UnisinosTwitter.TweetRepliedIndex.TweetRepliedIndex",
+            "properties": "UnisinosClimaTempo.PropertiesExtractor"
         }
 
     def Resolve(self, instanceof):
