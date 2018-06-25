@@ -31,7 +31,7 @@ class ClimaTempoCurrentInfo:
         # if attr == "temperature": return self.temperature
         if attr == "vento": return "O vento na direção: %s, com vel. de: %sKmh" % (self.wind_direction, self.wind_velocity)
         elif attr == "pressao": return "A pressão de %s" % self.pressure
-        elif attr == "humidade": return "A humidade de %s" % self.humidity
+        elif attr == "umidade": return "A humidade de %s" % self.humidity
         elif attr == "condicao": return "Condição de %s" % self.condition.lower()
         elif attr == "temperatura": return "A temperatura max de %s" % self.temperature
         else: self.__dict__[attr]
