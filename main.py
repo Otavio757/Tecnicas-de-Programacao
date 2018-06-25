@@ -19,7 +19,7 @@ class UnisinosBot:
         print(cities)
 
     def ExecuteRoutine(self):
-        tweets = self.twitter.get_tweets("#devopspower")
+        tweets = self.twitter.get_tweets("#tweet2time")
         print(tweets.GetInfo() + str(datetime.now()))
         for tweet in tweets:
             
@@ -71,7 +71,7 @@ class UnisinosBot:
 
 if __name__ == "__main__":
 
-    bot = UnisinosBot(DependenceResolver(True))
+    bot = UnisinosBot(DependenceResolver(False))
 
     while True:
         bot.ExecuteRoutine()

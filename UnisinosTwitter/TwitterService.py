@@ -47,6 +47,7 @@ class TwitterService:
     def reply_tweet(self, tweet_id, reply):
         t = self.get_twitter_instance()
         t.statuses.update(status=reply, in_reply_to_status_id=tweet_id, auto_populate_reply_metadata=True)
+        print(reply)
     
     def reply_tweet_with_image(self, tweet_id, reply, image_path):
         t = self.get_twitter_instance()
@@ -55,6 +56,7 @@ class TwitterService:
         t_upload = self.get_twitter_upload_instance()
         id_img1 = t_upload.media.upload(media=imagedata)["media_id_string"]
         t.statuses.update(status=reply, media_ids=id_img1, in_reply_to_status_id=tweet_id, auto_populate_reply_metadata=True)
+        print(reply, image_path)
 
     def send_direct_message(self, to, message): 
         t = self.get_twitter_instance()
