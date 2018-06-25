@@ -3,7 +3,7 @@ class PropertyExtractor:
     def __init__(self):
         self.properties = {    
             # "chuva": "UnisinosTwitter.TwitterService.TwitterServiceFake",
-            "humidade": "data.humidity",
+            "umidade": "data.humidity",
             "precipitacao": "UnisinosClimaTempo.ClimaTempoService.ClimaTempoServiceFake",
             "vento": "wind_direction",
             "vento": "wind_velocity",
