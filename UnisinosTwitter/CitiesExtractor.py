@@ -6,7 +6,7 @@ __status__ = "Development"
 
 import sys
 import math
-from geotext import GeoText
+#from geotext import GeoText
 from UnisinosTwitter.CityIndex import CityIndex
 
 class CitiesExtractor:

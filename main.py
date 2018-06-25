@@ -1,3 +1,5 @@
+﻿#enconding: utf-8
+
 import sys, time
 from datetime import datetime
 from UnisinosClimaTempo.Chart import plot_weather
