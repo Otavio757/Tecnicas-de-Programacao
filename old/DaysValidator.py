@@ -18,6 +18,5 @@ class DaysValidator:
         
         if (nextDay > today):
             return nextDay - today
-        
         else:
             return nextDay + 7 - today

@@ -98,17 +98,28 @@ class TwitterServiceFake:
 
     def __init__(self):
         self.tweets = [
-            "qual a previsao do tempo para gravatai nos proximos 2 dias?",
-            "qual a previsao do tempo para gravatai nos proximos 10 dias?",
-            "qual a previsao do tempo para gravatai nos proximos dez dias?",
-            "qual a previsao do tempo para gravataí nos proximos dez dias?",
-            "qual a previsao do tempo para Gravataí nos proximos dez dias?",
-            "qual a previsao do tempo pra são LEOPOLDO pra hoje?",
-            "qual a previsao do tempo para canoas pra sexta feira?",
-            "qual a previsao do tempo para canoas pra quarta?"
-            "qual a previsao do tempo para canoas pra terca feira?"
-            "qual a previsao do tempo para glorinha amanhã?",
-            "Como tá o tempo em Santo Antônio da Patrulha para amanhã #Tweet2Time"
+            # "qual a previsao do tempo para gravatai nos proximos 2 dias?",
+            # "qual a previsao do tempo para gravatai nos proximos 5 dias?",
+            # "qual a previsao do tempo para gravatai nos proximos 10 dias?",
+            # "qual a previsao do tempo para gravatai nos proximos dez dias?",
+            "qual a previsao do tempo para gravatai para hoje e o vento e a humidade e a precipitação?",
+            "qual a previsao do tempo para gravatai para amanhã e o vento e a humidade e a precipitação?",
+            "qual a previsao do tempo para gravatai para segunda e o vento e a humidade e a precipitação?",
+            "qual a previsao do tempo para gravatai para terça e o vento e a humidade e a precipitação?",
+            "qual a previsao do tempo para gravatai para domingo e o vento e a humidade e a precipitação?",
+            "qual a previsao do tempo para gravatai para os proximos 10 dias e o vento e a humidade e a precipitação?",
+            "qual a previsao do tempo para gravatai para os proximos 5 dias e o vento e a humidade e a precipitação?",
+            "qual a previsao do tempo para gravatai para os proximos 3 dias e o vento e a humidade e a precipitação?",
+            "qual a previsao do tempo para gravatai para os proximos 1 dias e o vento e a humidade e a precipitação?",
+            # "qual a previsao do tempo para gravataí nos proximos dez dias?",
+            # "qual a previsao do tempo para Gravataí nos proximos dez dias?",
+            # "qual a previsao do tempo pra são LEOPOLDO pra hoje?",
+            # "qual a previsao do tempo para canoas pra sexta feira?",
+            # "qual a previsao do tempo para canoas pra quarta?"
+            # "qual a previsao do tempo para canoas pra terca feira?"
+            # "qual a previsao do tempo para canoas pra sexta feira?"
+            # "qual a previsao do tempo para glorinha amanhã?",
+            # "Como tá o tempo em Santo Antônio da Patrulha para amanhã #Tweet2Time"
         ]
 
     def get_tweets(self, hashtag):

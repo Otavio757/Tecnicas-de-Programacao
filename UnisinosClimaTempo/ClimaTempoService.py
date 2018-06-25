@@ -1,6 +1,4 @@
 import unidecode
-from UnisinosClimaTempo.WebClient import WebClient, WebClientFake
-from UnisinosClimaTempo.ClimaTempoResponse import ClimaTempoResponse, ClimaTempoHistoryInfo, ClimaTempoCurrentInfo, ClimaTempoForecastDaysInfo, ClimaTempoForecastHoursInfo
 
 class ClimaTempoService:
 
@@ -34,15 +32,15 @@ class ClimaTempoService:
     def get_current_weather(self, cityName):
         url = self.build_url("weather", cityName, unit="current")
         response = self.web_client.Invoke(url)
-        return ClimaTempoResponse(response, ClimaTempoCurrentInfo)
+        return ClimaTempoResponseFactory(response, ClimaTempoCurrentInfo)
 
     def get_weather_per_hour(self, cityName):
         response = self.web_client.Invoke(self.build_url("forecast", cityName, unit="hours/72"))
-        return ClimaTempoResponse(response, ClimaTempoForecastHoursInfo)
+        return ClimaTempoResponseFactory(response, ClimaTempoForecastHoursInfo)
 
     def get_weather_per_days(self, cityName, exact_day = -1, days_ahead = -1):
         response = self.web_client.Invoke(self.build_url("forecast", cityName, unit="days/15")) #always 15 days - fucking shitting api
-        response = ClimaTempoResponse(response, ClimaTempoForecastDaysInfo)
+        response = ClimaTempoResponseFactory(response, ClimaTempoForecastDaysInfo)
         if not exact_day == -1:
             response.info = [response.info[exact_day]]
         elif not days_ahead == -1:
@@ -51,7 +49,7 @@ class ClimaTempoService:
         
     def get_weather_history(self, cityName):
         response = self.web_client.Invoke(self.build_url("history", cityName, fromDate=""))
-        return ClimaTempoResponse(response, ClimaTempoHistoryInfo)
+        return ClimaTempoResponseFactory(response, ClimaTempoHistoryInfo)
 
 class ClimaTempoServiceFake(ClimaTempoService):
     def __init__(self):
@@ -60,9 +58,14 @@ class ClimaTempoServiceFake(ClimaTempoService):
         self.load_cities_ids()
 
 if __name__ == "__main__":
+    from WebClient import WebClient, WebClientFake
+    from ClimaTempoResponse import ClimaTempoResponseFactory, ClimaTempoHistoryInfo, ClimaTempoCurrentInfo, ClimaTempoForecastDaysInfo, ClimaTempoForecastHoursInfo
     service = ClimaTempoServiceFake()
-    weathers = service.get_current_weather("Gravataí")
+    # weathers = service.get_current_weather("Gravataí")
+    weathers = service.get_weather_per_days("Gravataí", days_ahead = 5)
     for weather in weathers.info:
-        print(weather.date)
-
+        print(weather.precipitacao)
+else:
+    from UnisinosClimaTempo.WebClient import WebClient, WebClientFake
+    from UnisinosClimaTempo.ClimaTempoResponse import ClimaTempoResponseFactory, ClimaTempoHistoryInfo, ClimaTempoCurrentInfo, ClimaTempoForecastDaysInfo, ClimaTempoForecastHoursInfo
 ##response = self.web_client.generate_example(self.build_url("forecast", cityName, "hours/72"), "hours_example")
