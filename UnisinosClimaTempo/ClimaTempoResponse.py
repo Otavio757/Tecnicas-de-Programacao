@@ -73,7 +73,7 @@ class ClimaTempoForecastDaysInfo:
         elif attr == "pressao": return "A pressao de %s" % self.pressure
         elif attr == "condicao": return "A condição %s" % self.condition
         elif attr == "chuva": return "A probabilidade de chuva é %s" % self.rain['probability']
-        elif attr == "humidade": return "A humidade min de %s e max %s" % (self.humidity['min'], self.humidity['max'])
+        elif attr == "umidade": return "A humidade min de %s e max %s" % (self.humidity['min'], self.humidity['max'])
         elif attr == "precipitacao": return "A precipitação de %s" % self.rain['precipitation']
         elif attr == "uv": return "UV max de %s" % self.uv['max']
         elif attr == "sensacao termica": return "A sensação min de %s e max %s" % (self.thermal_sensation['min'], self.thermal_sensation['max'])
